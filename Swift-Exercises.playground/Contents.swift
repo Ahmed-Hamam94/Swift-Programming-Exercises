@@ -46,3 +46,60 @@ func prependIsIfNeeded(to statement: String) -> String {
     return "Is \(statement)"
 }
 print(prependIsIfNeeded(to: "Is valid"))
+
+// Write a Swift program to remove a character at specified index of a given non-empty string. The value of the specified index will be in the range 0..str.length()-1 inclusive.
+func removeCharacter(from text : String, at index: Int) -> String {
+    /// All the functions have the same time complexity, 𝑂(𝑛), because each needs to traverse the string or array at least once. However:
+    /// Function 1: Converting to an array is generally slower due to the additional memory allocation for the array.
+    /// Function 2 & 3: Avoid array conversions but rely on string appending, which might have some overhead due to reallocations.
+    /// Function 4: Directly works on the string without converting it to an array, making it the most memory-efficient approach while maintaining simplicity.
+
+    guard !text.isEmpty else { return "Empty String" }
+    guard index >= 0 && index < text.count else {
+        return "Index out of range"
+    }
+
+    // MARK: - 1
+    var characters = Array(text)
+    print(characters)
+    characters.remove(at: index)
+    return String(characters)
+
+    // MARK: - 2
+    /*
+     var result = ""
+     for (i, char) in text.enumerated() {
+     if i != index {
+     result.append(char)
+     }
+     }
+     return result
+     */
+
+    // MARK: - 3
+    /*
+     var result = ""
+     var currentIndex = 0
+
+     for char in text {
+     if currentIndex != index {
+     result.append(char)
+     }
+     currentIndex += 1
+     }
+     return result
+     */
+
+    // MARK: - 4
+    /*
+     let count = text.count
+     var newWord = text
+     let index = text.index(text.startIndex, offsetBy: index)
+     if  count > 0
+     {
+     newWord.remove(at: index)
+     }
+     return newWord
+     */
+}
+print(removeCharacter(from: "testt", at: 3))

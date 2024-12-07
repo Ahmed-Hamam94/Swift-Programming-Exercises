@@ -1,6 +1,6 @@
 import UIKit
 
-// Write a Swift program to compute the sum of the two integers. If the values are equal return the triple their sum.
+// MARK: - Write a Swift program to compute the sum of the two integers. If the values are equal return the triple their sum.
 func sumOfTwoInt(_ num1: Int, _ num2: Int) -> Int {
     let result = num1 + num2
     if num1 == num2 {
@@ -10,7 +10,7 @@ func sumOfTwoInt(_ num1: Int, _ num2: Int) -> Int {
 }
 print(sumOfTwoInt(3, 2))
 
-// Write a Swift program to compute and return the absolute difference of n and 51, if n is over 51 return double the absolute difference
+// MARK: - Write a Swift program to compute and return the absolute difference of n and 51, if n is over 51 return double the absolute difference
 func computeAbsoluteDifference(with n: Int) -> Int {
     let number = 51
     let result = abs(n - number)
@@ -21,7 +21,7 @@ func computeAbsoluteDifference(with n: Int) -> Int {
 }
 print(computeAbsoluteDifference(with: 111))
 
-// Write a Swift program that accept two integer values and return true if one of them is 20 or if their sum is 20.
+// MARK: - Write a Swift program that accept two integer values and return true if one of them is 20 or if their sum is 20.
 func itest(_ num1: Int, _ num2: Int) -> Bool {
     let number = 20
     guard num1 == number || num2 == number || (num1 + num2) == number else { return false }
@@ -30,13 +30,13 @@ func itest(_ num1: Int, _ num2: Int) -> Bool {
 }
 print(itest(201, 20))
 
-// Write a Swift program to accept two integer values and return true if one is negative and one is positive. Return true only if both are negative.
+// MARK: - Write a Swift program to accept two integer values and return true if one is negative and one is positive. Return true only if both are negative.
 func hasOppositeSignsOrBothNegative(_ num1: Int, _ num2: Int) -> Bool {
      (num1 < 0 && num2 > 0) || (num1 > 0 && num2 < 0) || (num1 < 0 && num2 < 0)
 }
 print(hasOppositeSignsOrBothNegative(0, 0))
 
-// Write a Swift program to add "Is" to the front of a given string. However, if the string already begins with "Is", return the given string.
+// MARK: - Write a Swift program to add "Is" to the front of a given string. However, if the string already begins with "Is", return the given string.
 func prependIsIfNeeded(to statement: String) -> String {
     guard !statement.isEmpty else { return "Is" }
 
@@ -47,7 +47,7 @@ func prependIsIfNeeded(to statement: String) -> String {
 }
 print(prependIsIfNeeded(to: "Is valid"))
 
-// Write a Swift program to remove a character at specified index of a given non-empty string. The value of the specified index will be in the range 0..str.length()-1 inclusive.
+// MARK: - Write a Swift program to remove a character at specified index of a given non-empty string. The value of the specified index will be in the range 0..str.length()-1 inclusive.
 func removeCharacter(from text : String, at index: Int) -> String {
     /// All the functions have the same time complexity, 𝑂(𝑛), because each needs to traverse the string or array at least once. However:
     /// Function 1: Converting to an array is generally slower due to the additional memory allocation for the array.
@@ -103,3 +103,22 @@ func removeCharacter(from text : String, at index: Int) -> String {
      */
 }
 print(removeCharacter(from: "testt", at: 3))
+
+// MARK: - Write a Swift program to change the first and last character of a given string.
+func changeFirstLastCharacter(of input: String) -> String {
+      guard input.count > 1 else {
+          return input
+      }
+    
+      var characters = Array(input)
+      let firstCharacter = characters.first!
+      let lastCharacter = characters.last!
+      
+      // Swap the first and last characters
+      characters[0] = lastCharacter
+      characters[characters.count - 1] = firstCharacter
+      
+      // Convert the character array back to a string
+      return String(characters)
+}
+print(changeFirstLastCharacter(of: "Swift"))

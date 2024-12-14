@@ -140,4 +140,14 @@ func addLastCharacterAtFrontAndBack(of input: String) -> String {
 }
 print(addLastCharacterAtFrontAndBack(of: "Swift"))
 
-
+// MARK: - 9. Write a Swift program to check if a given non-negative number is a multiple of 3 or a multiple of 5.
+func isMultipleOfThreeOrFive(_ number: Int) -> Bool {
+    guard number > 0 else { return false }
+    
+    if number % 3 == 0 || number % 5 == 0 {
+        return true
+    }
+    
+    return false
+}
+print(isMultipleOfThreeOrFive(20))

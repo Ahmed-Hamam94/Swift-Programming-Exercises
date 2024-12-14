@@ -178,3 +178,12 @@ func isInRange(_ number: Int, with range: ClosedRange<Int>) -> Bool {
     return range ~= number
 }
 print(isInRange(150, with: 10...30))
+
+// MARK: - 13. Write a Swift program to check if a given string begins with "fix", except the 'f' can be any character or number.
+func beginWithFix(_ input: String) -> Bool {
+    guard input.count > 2 else { return false }
+    let index = input.index(after: input.startIndex)
+
+    return input[index...].hasPrefix("ix")
+}
+print(beginWithFix("fixi"))

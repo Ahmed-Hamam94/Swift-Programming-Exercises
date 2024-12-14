@@ -118,7 +118,26 @@ func changeFirstLastCharacter(of input: String) -> String {
       characters[0] = lastCharacter
       characters[characters.count - 1] = firstCharacter
       
-      // Convert the character array back to a string
       return String(characters)
 }
 print(changeFirstLastCharacter(of: "Swift"))
+
+// MARK: - 8. Write a Swift program to add the last character (given string) at the front and back of a given string. The length of the given string must be 1 or more.
+func addLastCharacterAtFrontAndBack(of input: String) -> String {
+    guard input.count > 1 else { return input }
+    
+//    var characters = Array(input)
+//    let lastCharacter = input.last!
+//    
+//    characters.insert(lastCharacter, at: 0)
+//    characters.insert(lastCharacter, at: characters.count - 1)
+//    
+//    return String(characters)
+
+    guard let lastCharacter = input.last else { return input }
+    let lastStr = String(lastCharacter)
+    return lastStr + input + lastStr
+}
+print(addLastCharacterAtFrontAndBack(of: "Swift"))
+
+

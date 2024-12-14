@@ -151,3 +151,30 @@ func isMultipleOfThreeOrFive(_ number: Int) -> Bool {
     return false
 }
 print(isMultipleOfThreeOrFive(20))
+
+// MARK: - 10. Write a Swift program to take the first two characters from a given string and create a new string with the two characters added at both the front and back.
+func addFirstTwoCharactersAtFrontAndBack(of input: String) -> String {
+    guard input.count > 2 else { return input }
+    
+    var characters = Array(input)
+    let firstTwoCharactersArray = characters.prefix(2)
+    let firstTwoCharacters = String(firstTwoCharactersArray)
+    
+    return firstTwoCharacters + input + firstTwoCharacters
+}
+print(addFirstTwoCharactersAtFrontAndBack(of: "Swift"))
+
+// MARK: - 11. Write a Swift program to test a given string whether it starts with "Is". Return true or false.
+func startsWithIs(_ input: String) -> Bool {
+    guard input.count >= 2 else { return false }
+    let word = input.lowercased()
+    
+    return word.hasPrefix("is")
+}
+print(startsWithIs("Is Swift"))
+
+// MARK: - 12. Write a Swift program that return true if either of two given integers is in the range 10..30 inclusive.
+func isInRange(_ number: Int, with range: ClosedRange<Int>) -> Bool {
+    return range ~= number
+}
+print(isInRange(150, with: 10...30))

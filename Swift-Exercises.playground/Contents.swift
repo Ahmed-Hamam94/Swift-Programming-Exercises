@@ -178,3 +178,42 @@ func isInRange(_ number: Int, with range: ClosedRange<Int>) -> Bool {
     return range ~= number
 }
 print(isInRange(150, with: 10...30))
+
+// MARK: - 13. Write a Swift program to check if a given string begins with "fix", except the 'f' can be any character or number.
+func beginWithFix(_ input: String) -> Bool {
+    guard input.count > 2 else { return false }
+    let index = input.index(after: input.startIndex)
+
+    return input[index...].hasPrefix("ix")
+}
+print(beginWithFix("fixi"))
+
+// MARK: - 14. Write a Swift program to find the largest number among three given integers.
+func findMaxNumber(_ numbers: [Int]) -> Int {
+     return numbers.max() ?? 0
+}
+print(findMaxNumber([10, 30, 9]))
+
+// MARK: - 15. Write a Swift program that accept two integer values and to test which value is nearest to the value 10, or return 0 if both integers have same distance from 10.
+func findNearestNumberToTen(_ number1: Int, _ number2: Int) -> Int {
+    let givenNumber = 10
+    let distance1 = abs(number1 - givenNumber)
+    let distance2 = abs(number2 - givenNumber)
+    
+    guard distance1 != distance2 else { return 0 }
+    
+    return distance1 > distance2 ? number2 : number1
+}
+print(findNearestNumberToTen(8, 13))
+
+// MARK: - 16. Write a Swift program that accept two integer values and test if they are both in the range 20..30 inclusive, or they are both in the range 30..40 inclusive.
+func isInRange(_ number1: Int, _ number2: Int) -> Bool {
+    let firstRange = (20...30)
+    let secondRange = (30...40)
+    
+    let isInFirstRange = firstRange.contains(number1) && firstRange.contains(number2)
+    let isInSecondRange = secondRange.contains(number1) && secondRange.contains(number2)
+
+    return isInFirstRange || isInSecondRange
+ }
+print(isInRange(20, 48))

@@ -217,3 +217,26 @@ func isInRange(_ number1: Int, _ number2: Int) -> Bool {
     return isInFirstRange || isInSecondRange
  }
 print(isInRange(20, 48))
+
+// MARK: - 17. Write a Swift program that accept two positive integer values and test whether the larger value is in the range 20..30 inclusive, or return 0 if neither is in that range.
+func checkLargerInRange(_ number1: UInt, _ number2: UInt) -> UInt {
+    let range: ClosedRange<UInt> = (20...30)
+    let largerNumber = number1 > number2 ? number1 : number2
+    
+    if range.contains(largerNumber) {
+        return largerNumber
+    }
+    
+    return 0
+}
+print(checkLargerInRange(30, 6))
+
+// MARK: - 18. Write a Swift program to test whether the last digit of the two given non-negative integer values are same or not.
+func checkLastDigitSame(_ number1: Int, _ number2: Int) -> Bool {
+    guard number1 > 0 && number2 > 0 else { return false }
+    if number1 % 10 == number2 % 10 { return true}
+    
+    return false
+}
+print(checkLastDigitSame(44, 4))
+

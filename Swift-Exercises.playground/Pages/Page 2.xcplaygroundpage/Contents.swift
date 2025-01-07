@@ -15,3 +15,17 @@ func convertLastThreeCharacterToUppercase(_ input: String) -> String {
     return String(startPart) + endPart
 }
 print(convertLastThreeCharacterToUppercase("Hello"))
+
+// MARK: - 20. Write a Swift program to check if the first instance of "a" in a given string is immediately followed by another "a"
+func checkIfFirstInstanceOfAIsImmediatelyFollowedByAnotherA(with input: String) -> Bool {
+    guard !input.isEmpty else { return false}
+    
+    let firstIndexOfA = input.startIndex
+    let secondIndexOfA = input.index(after: firstIndexOfA)
+    
+    if input[firstIndexOfA] == "a" && input[secondIndexOfA] == "a" { return true
+    }
+    
+    return false
+}
+print(checkIfFirstInstanceOfAIsImmediatelyFollowedByAnotherA(with: "aawaaqw"))
